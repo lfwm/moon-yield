@@ -1,0 +1,8 @@
+local Information = {
+  user_agent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 13_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.6261.95 Safari/537.36 OPR/108.0.0.0"
+}
+
+{
+	"Version": "6.0.0",
+	"Announcement": "Moon Yield is now working. It was not working due to a glitch on pkplaysrblx's account.\nMoon Yield will now be continued on LycheeFeather's account."
+}
