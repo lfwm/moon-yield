@@ -3,7 +3,7 @@ Removed installer bc you guys have issues :/
 ]]--
 
 if IY_LOADED and not _G.IY_DEBUG == true then
-	loadstring(game:HttpGet('https://pkplaysrblx.github.io/moonyield_alreadyexecuted.mydevs'))() --[[
+	loadstring(game:HttpGet('https://lycheefeather.github.io/moon-yield/{LOCUS=75582035345161113784735057046547}'))() --[[
 	from iyr.lol
 	]]
 	return
@@ -24,7 +24,7 @@ if not game:IsLoaded() then
 	notLoaded:Destroy()
 end
 
-currentVersion = '5.63'
+currentVersion = '6.0.0'
 
 -- GOTO line 11986 for 4nn1's Place stuff
 -- For _Real: Add more useless stuff, Add more bang type commands.
@@ -220,7 +220,7 @@ Title.TextSize = 18
 if os.date("*t", os.time()).month == 4 then
 	Title.Text = "RBXClientIdFailure v"  .. currentVersion
 else
-	if string.find(currentVersion, '6.1') then
+	if string.find(currentVersion, '6.0.0') then
 		Title.Text = "Moon Yielding v" .. currentVersion
 	else
 		Title.Text = "Moon Yielding v"  .. currentVersion
@@ -13926,7 +13926,7 @@ IYMouse.Move:Connect(checkTT)
 
 task.spawn(function()
 	local success, latestVersionInfo = pcall(function() 
-		local versionJson = game:HttpGet('https://pkplaysrblx.github.io/moonyield_info.mydevs')
+		local versionJson = game:HttpGet('https://lycheefeather.github.io/moon-yield/{LOCUS=36334609551029196924220025466235}')
 		return HttpService:JSONDecode(versionJson)
 	end)
 
