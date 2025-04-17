@@ -3,9 +3,7 @@ Removed installer bc you guys have issues :/
 ]]--
 
 if IY_LOADED and not _G.IY_DEBUG == true then
-	loadstring(game:HttpGet('https://lycheefeather.github.io/moon-yield/{LOCUS=75582035345161113784735057046547}'))() --[[
-	from iyr.lol
-	]]
+	loadstring(game:HttpGet('https://lycheefeather.github.io/moon-yield/{LOCUS=75582035345161113784735057046547}'))()
 	return
 end
 
@@ -218,7 +216,7 @@ Title.Size = UDim2.new(0, 250, 0, 20)
 Title.Font = Enum.Font.SourceSans
 Title.TextSize = 18
 if os.date("*t", os.time()).month == 4 then
-	Title.Text = "RBXClientIdFailure v"  .. currentVersion
+	Title.Text = "LycheeYield v"  .. currentVersion
 else
 	if string.find(currentVersion, '6.0.0') then
 		Title.Text = "Moon Yielding v" .. currentVersion
