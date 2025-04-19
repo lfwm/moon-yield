@@ -4456,6 +4456,12 @@ CMDs[#CMDs + 1] = {NAME = 'removeinstances / removeallowinstances', DESC = 'Disa
 CMDs[#CMDs + 1] = {NAME = 'discord / dc', DESC = 'Invite to the Discord server.'}
 CMDs[#CMDs + 1] = {NAME = 'console', DESC = 'Loads old Roblox console'}
 CMDs[#CMDs + 1] = {NAME = 'autoflashback', DESC = 'Automatically teleports you back to your old position when you die.'}
+CMDs[#CMDs + 1] = {NAME = 'ctrllock', DESC = 'Binds Shiftlock to LeftControl'}
+CMDs[#CMDs + 1] = {NAME = 'unctrllock', DESC = 'Re-binds Shiftlock to LeftShift'}
+CMDs[#CMDs + 1] = {NAME = 'listento [player]', DESC = 'Listens to the area around a player. Can also eavesdrop with vc'}
+CMDs[#CMDs + 1] = {NAME = 'unlistento', DESC = 'Disables listento'}
+CMDs[#CMDs + 1] = {NAME = 'jerk', DESC = 'Makes you jork it'}
+CMDs[#CMDs + 1] = {NAME = 'unsuspendvc', DESC = 'Unsuspends you from voice chat'}
 CMDs[#CMDs + 1] = {NAME = 'unc / unctest / unccheckevn', DESC = 'Tests all UNC Environment'}
 CMDs[#CMDs + 1] = {NAME = 'addunc / addmoreunc / adduncevn', DESC = 'Adds some UNC Environment(s)'}
 CMDs[#CMDs + 1] = {NAME = 'explorer / dex', DESC = 'Opens DEX by Moon'}
@@ -6591,6 +6597,114 @@ addcmd('keepiy', {}, function(args, speaker)
 	else
 		notify('Incompatible Exploit','Your exploit does not support this command (missing queue_on_teleport)')
 	end
+end)
+
+addcmd("ctrllock", {}, function(args, speaker)
+    local mouseLockController = speaker.PlayerScripts:WaitForChild("PlayerModule"):WaitForChild("CameraModule"):WaitForChild("MouseLockController")
+    local boundKeys = mouseLockController:FindFirstChild("BoundKeys")
+
+    if boundKeys then
+        boundKeys.Value = "LeftControl"
+    else
+        boundKeys = Instance.new("StringValue")
+        boundKeys.Name = "BoundKeys"
+        boundKeys.Value = "LeftControl"
+        boundKeys.Parent = mouseLockController
+    end
+end)
+
+addcmd("unctrllock", {}, function(args, speaker)
+    local mouseLockController = speaker.PlayerScripts:WaitForChild("PlayerModule"):WaitForChild("CameraModule"):WaitForChild("MouseLockController")
+    local boundKeys = mouseLockController:FindFirstChild("BoundKeys")
+
+    if boundKeys then
+        boundKeys.Value = "LeftShift"
+    else
+        boundKeys = Instance.new("StringValue")
+        boundKeys.Name = "BoundKeys"
+        boundKeys.Value = "LeftShift"
+        boundKeys.Parent = mouseLockController
+    end
+end)
+
+addcmd("listento", {}, function(args, speaker)
+    execCmd("unlistento")
+    if not args[1] then return end
+
+    local player = Players:FindFirstChild(getPlayer(args[1], speaker)[1])
+    local root = player and player.Character and getRoot(player.Character)
+
+    if root then
+        SoundService:SetListener(Enum.ListenerType.ObjectPosition, root)
+        listentoChar = player.CharacterAdded:Connect(function()
+            repeat task.wait() until Players[player.Name].Character ~= nil and getRoot(Players[player.Name].Character)
+            SoundService:SetListener(Enum.ListenerType.ObjectPosition, getRoot(Players[player.Name].Character))
+        end)
+    end
+end)
+
+addcmd("unlistento", {}, function(args, speaker)
+    SoundService:SetListener(Enum.ListenerType.Camera)
+    listentoChar:Disconnect()
+end)
+
+addcmd("jerk", {}, function(args, speaker)
+    local humanoid = speaker.Character:FindFirstChildWhichIsA("Humanoid")
+    local backpack = speaker:FindFirstChildWhichIsA("Backpack")
+    if not humanoid or not backpack then return end
+
+    local tool = Instance.new("Tool")
+    tool.Name = "Jerk Off"
+    tool.ToolTip = "in the stripped club. straight up \"jorking it\" . and by \"it\" , haha, well. let's justr say. My peanits."
+    tool.RequiresHandle = false
+    tool.Parent = backpack
+
+    local jorkin = false
+    local track = nil
+
+    local function stopTomfoolery()
+        jorkin = false
+        if track then
+            track:Stop()
+            track = nil
+        end
+    end
+
+    tool.Equipped:Connect(function() jorkin = true end)
+    tool.Unequipped:Connect(stopTomfoolery)
+    humanoid.Died:Connect(stopTomfoolery)
+
+    while task.wait() do
+        if not jorkin then continue end
+
+        local isR15 = r15(speaker)
+        if not track then
+            local anim = Instance.new("Animation")
+            anim.AnimationId = not isR15 and "rbxassetid://72042024" or "rbxassetid://698251653"
+            track = humanoid:LoadAnimation(anim)
+        end
+
+        track:Play()
+        track:AdjustSpeed(isR15 and 0.7 or 0.65)
+        track.TimePosition = 0.6
+        task.wait(0.1)
+        while track and track.TimePosition < (not isR15 and 0.65 or 0.7) do task.wait(0.1) end
+        if track then
+            track:Stop()
+            track = nil
+        end
+    end
+end)
+
+addcmd("unsuspendvc", {}, function(args, speaker)
+    VoiceChatService:joinVoice()
+
+    if typeof(onVoiceModerated) ~= "RBXScriptConnection" then
+        onVoiceModerated = cloneref(game:GetService("VoiceChatInternal")).LocalPlayerModerated:Connect(function()
+            task.wait(1)
+            VoiceChatService:joinVoice()
+        end)
+    end
 end)
 
 addcmd('unkeepiy', {}, function(args, speaker)
