@@ -4455,6 +4455,7 @@ CMDs[#CMDs + 1] = {NAME = 'moreinstances / allowmoreinstances', DESC = 'Allows m
 CMDs[#CMDs + 1] = {NAME = 'removeinstances / removeallowinstances', DESC = 'Disallows more instances.'}
 CMDs[#CMDs + 1] = {NAME = 'discord / dc', DESC = 'Invite to the Discord server.'}
 CMDs[#CMDs + 1] = {NAME = 'console', DESC = 'Loads old Roblox console'}
+CMDs[#CMDs + 1] = {NAME = 'autoflashback', DESC = 'Automatically teleports you back to your old position when you die.'}
 CMDs[#CMDs + 1] = {NAME = 'unc / unctest / unccheckevn', DESC = 'Tests all UNC Environment'}
 CMDs[#CMDs + 1] = {NAME = 'addunc / addmoreunc / adduncevn', DESC = 'Adds some UNC Environment(s)'}
 CMDs[#CMDs + 1] = {NAME = 'explorer / dex', DESC = 'Opens DEX by Moon'}
@@ -6547,6 +6548,16 @@ end)
 addcmd('removeallowinstances',{'removeinstances'},function(args, speaker)
 	notify("Moon Yield", "Successfully removed the function to 'allowmoreinstances'.")
 	getgenv().IY_LOADED = true
+end)
+getgenv().autoflashback = false
+addcmd('autoflashback', {}, function(args, speaker)
+	getgenv().autoflashback = not getgenv().autoflashback
+	if lastDeath ~= nil then
+		if speaker.Character:FindFirstChildOfClass('Humanoid') and speaker.Character:FindFirstChildOfClass('Humanoid').SeatPart then
+			speaker.Character:FindFirstChildOfClass('Humanoid').Sit = false
+			task.wait(.1)
+	end
+while getgenv().autoflashback and lastDeath do getRoot(speaker.Character).CFrame = lastDeath end;
 end)
 
 addcmd('discord', {'dc'}, function(args, speaker)
