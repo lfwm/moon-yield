@@ -213,9 +213,9 @@ Title.Active = true
 Title.BackgroundColor3 = Color3.fromRGB(36,36,37)
 Title.BorderSizePixel = 0
 Title.Size = UDim2.new(0, 250, 0, 20)
-Title.Font = Enum.Font.SourceSans
+Title.Font = Enum.Font.GothamBold
 Title.TextSize = 18
-Title.Text = "👾 Moon Yield Remastered FE v" .. currentVersion .. " 👾"
+Title.Text = "👾 [NEW] Moon Yield v" .. currentVersion .. " 👾"
 
 do
 	local emoji = ({
@@ -266,7 +266,7 @@ Cmdbar.BackgroundTransparency = 1
 Cmdbar.BorderSizePixel = 0
 Cmdbar.Position = UDim2.new(0, 5, 0, 20)
 Cmdbar.Size = UDim2.new(0, 240, 0, 25)
-Cmdbar.Font = Enum.Font.SourceSans
+Cmdbar.Font = Enum.Font.Montserrat
 Cmdbar.TextSize = 18
 Cmdbar.TextXAlignment = Enum.TextXAlignment.Left
 Cmdbar.TextColor3 = Color3.new(1, 1, 1)
@@ -624,9 +624,9 @@ Credits.BackgroundTransparency = 1
 Credits.BorderSizePixel = 0
 Credits.Position = UDim2.new(0, 0, 0.9, 30)
 Credits.Size = UDim2.new(0, 250, 0, 20)
-Credits.Font = Enum.Font.SourceSansLight
+Credits.Font = Enum.Font.GothamBold
 Credits.FontSize = Enum.FontSize.Size18
-Credits.Text = "Edge // Zwolf // Moon // Toon"
+Credits.Text = "pkplaysrblx // LycheeFeather // nxyq"
 Credits.TextColor3 = Color3.new(1, 1, 1)
 Credits.ZIndex = 10
 
