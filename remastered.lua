@@ -215,11 +215,11 @@ Title.BorderSizePixel = 0
 Title.Size = UDim2.new(0, 250, 0, 20)
 Title.Font = Enum.Font.SourceSans
 Title.TextSize = 18
-Title.Text = "👾 Moon Yield Remastered FE v" .. currentVersion .. " 👾"
+Title.Text = "Moon Yield Remastered FE v" .. currentVersion .. ""
 
 do
 	local emoji = ({
-		["01 01"] = "🎆",
+		["01 01"] = "ðŸŽ†",
 		[(function(Year)
 			local A = math.floor(Year/100)
 			local B = math.floor((13+8*A)/25)
@@ -236,9 +236,9 @@ do
 				return ("04 %02d"):format(G-31)
 			end
 			return ("03 %02d"):format(G)
-		end)(tonumber(os.date"%Y"))] = "🥚",
-		["10 31"] = "🎃",
-		["12 25"] = "🎄"
+		end)(tonumber(os.date"%Y"))] = "ðŸ¥š",
+		["10 31"] = "ðŸŽƒ",
+		["12 25"] = "ðŸŽ„"
 	})[os.date("%m %d")]
 	if emoji then
 		Title.Text = ("%s %s %s"):format(emoji, Title.Text, emoji)
@@ -6443,7 +6443,7 @@ end)
 addcmd('github',{}, function(args, speaker)
 	if everyClipboard then
 		toClipboard('https://github.com/LycheeFeather')
-		notify('GitHub Link', 'Copied to clipboard!\nhttps://github.com/LycheeFeather)
+		notify('GitHub Link', 'Copied to clipboard!\nhttps://github.com/LycheeFeather')
 	else
 		notify('GitHub Link', 'https://github.com/LycheeFeather')
 	end
@@ -12981,7 +12981,7 @@ task.spawn(function()
 
 	if success then
 		if currentVersion ~= latestVersionInfo.Version then
-			notify('Outdated','Get the new version at my GitHub repository.")
+			notify('Outdated','Get the new version at my GitHub repository.')
 		end
 
 		if latestVersionInfo.Announcement and latestVersionInfo.Announcement ~= '' then
