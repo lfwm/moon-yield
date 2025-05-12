@@ -215,7 +215,7 @@ Title.BorderSizePixel = 0
 Title.Size = UDim2.new(0, 250, 0, 20)
 Title.Font = Enum.Font.GothamBold
 Title.TextSize = 18
-Title.Text = "👾 [NEW] Moon Yield v" .. currentVersion .. " 👾"
+Title.Text = "👾 Moon Yield v" .. currentVersion .. " 👾"
 
 do
 	local emoji = ({
