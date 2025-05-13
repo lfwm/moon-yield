@@ -6455,7 +6455,7 @@ function setnonce(id)
 	if id then
 		currentnonce = id
 	else
-	warn("[MOON YIELD REMASTERED]: No ID has been provided.
+	warn("[MOON YIELD REMASTERED]: No ID has been provided.")
 	end
 end
 
