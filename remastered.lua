@@ -4347,6 +4347,8 @@ CMDs[#CMDs + 1] = {NAME = 'deletemoonyield / dmy', DESC = 'Deletes the current i
 CMDs[#CMDs + 1] = {NAME = 'moreinstances / allowmoreinstances', DESC = 'Allows more instances.'}
 CMDs[#CMDs + 1] = {NAME = 'removeinstances / removeallowinstances', DESC = 'Disallows more instances.'}
 CMDs[#CMDs + 1] = {NAME = 'generatenonce', DESC = 'Generates nonce'}
+CMDs[#CMDs + 1] = {NAME = 'setnonce', DESC = 'Sets the nonce of Moon Yield Remastered [HELPS WITH COMMANDS]'}
+CMDs[#CMDs + 1] = {NAME = 'printnonce', DESC = 'Prints the current setted nonce.'}
 CMDs[#CMDs + 1] = {NAME = 'github', DESC = 'Copies GitHub profile'}
 CMDs[#CMDs + 1] = {NAME = 'guiscale [number]', DESC = 'Changes the size of the gui. [number] accepts both decimals and whole numbers. Min is 0.4 and Max is 2'}
 CMDs[#CMDs + 1] = {NAME = 'console', DESC = 'Loads Roblox console'}
@@ -6439,9 +6441,33 @@ addcmd('generatenonce',{}, function(args, speaker)
   notify('Nonce Generator', ''..nonce)
   if everyClipboard then
     toClipboard(nonce)
+end
+  if isfile("moonyield.nonce") then
+	delfile("moonyield.nonce")
+	task.wait(0.1)
+	writefile("moonyield.nonce", nonce)
   end
 end)
 
+currentnonce = nil
+
+function setnonce(id)
+	if id then
+		currentnonce = id
+	else
+	warn("[MOON YIELD REMASTERED]: No ID has been provided.
+	end
+end
+
+addcmd('setnonce',{}, function(args, speaker)
+  local nonce = readfile("moonyield.nonce")
+  setnonce(nonce)
+end)
+
+addcmd('printnonce',{}, function(args, speaker)
+  print(currentnonce)
+end)
+	
 addcmd('github',{}, function(args, speaker)
 	if everyClipboard then
 		toClipboard('https://github.com/LycheeFeather')
