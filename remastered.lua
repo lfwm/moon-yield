@@ -241,6 +241,8 @@ do
 		["12 25"] = "🎄"
 	})[os.date("%m %d")]
 	if emoji then
+		Title.Text = ""
+		task.wait(0.01)
 		Title.Text = ("%s %s %s"):format(emoji, Title.Text, emoji)
 	end
 end
@@ -483,7 +485,7 @@ Example.BackgroundTransparency = 1
 Example.BorderSizePixel = 0
 Example.Size = UDim2.new(0, 190, 0, 20)
 Example.Visible = false
-Example.Font = Enum.Font.SourceSans
+Example.Font = Enum.Font.Montserrat
 Example.TextSize = 18
 Example.Text = "Example"
 Example.TextColor3 = Color3.new(1, 1, 1)
