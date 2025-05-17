@@ -628,7 +628,7 @@ Credits.Position = UDim2.new(0, 0, 0.9, 30)
 Credits.Size = UDim2.new(0, 250, 0, 20)
 Credits.Font = Enum.Font.GothamBold
 Credits.FontSize = Enum.FontSize.Size18
-Credits.Text = "pkplaysrblx // LycheeFeather // nxyq"
+Credits.Text = "pkplaysrblx // lfwm // nxyq"
 Credits.TextColor3 = Color3.new(1, 1, 1)
 Credits.ZIndex = 10
 
