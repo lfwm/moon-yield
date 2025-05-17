@@ -4113,7 +4113,7 @@ end)
 
 PrefixBox:GetPropertyChangedSignal("Text"):Connect(function()
 	prefix = PrefixBox.Text
-	Cmdbar.PlaceholderText = "Command Bar ("..prefix..")"
+	Cmdbar.PlaceholderText = "👾 Command Bar ("..prefix..") 👾"
 	updatesaves()
 end)
 
