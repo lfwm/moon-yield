@@ -4350,6 +4350,8 @@ CMDs[#CMDs + 1] = {NAME = 'generatenonce', DESC = 'Generates nonce'}
 CMDs[#CMDs + 1] = {NAME = 'setnonce', DESC = 'Sets the nonce of Moon Yield Remastered [HELPS WITH COMMANDS]'}
 CMDs[#CMDs + 1] = {NAME = 'printnonce', DESC = 'Prints the current setted nonce.'}
 CMDs[#CMDs + 1] = {NAME = 'github', DESC = 'Copies GitHub profile'}
+CMDs[#CMDs + 1] = {NAME = 'dragchat / chatdrag', DESC = 'Allows the Chat GUI to be dragged. [LEGACY ONLY]'}
+CMDs[#CMDs + 1] = {NAME = 'chatspy', DESC = 'Loads Chat Spy'}
 CMDs[#CMDs + 1] = {NAME = 'guiscale [number]', DESC = 'Changes the size of the gui. [number] accepts both decimals and whole numbers. Min is 0.4 and Max is 2'}
 CMDs[#CMDs + 1] = {NAME = 'console', DESC = 'Loads Roblox console'}
 CMDs[#CMDs + 1] = {NAME = 'oldconsole', DESC = 'Loads old Roblox console'}
@@ -6475,6 +6477,16 @@ addcmd('github',{}, function(args, speaker)
 	else
 		notify('GitHub Link', 'https://github.com/LycheeFeather')
 	end
+end)
+
+addcmd('dragchat',{'chatdrag'},function(args, speaker)
+repeat wait() until game:IsLoaded()
+local c =game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"):WaitForChild("Chat"):FindFirstChildWhichIsA("Frame");c.Active = true;c.Draggable=true
+end)
+
+addcmd('chatspy', {}, function(args, speaker)
+	notify('Loading', 'Should be loaded in a second..')
+	loadstring(game:HttpGet("https://github.com/dehoisted/Chat-Spy/raw/main/source/main.lua"))()
 end)
 
 addcmd('keepiy', {}, function(args, speaker)
