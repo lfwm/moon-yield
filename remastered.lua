@@ -4346,6 +4346,8 @@ CMDs[#CMDs + 1] = {NAME = 'rainbow', DESC = 'turns the thingy rainbow'}
 CMDs[#CMDs + 1] = {NAME = 'deletemoonyield / dmy', DESC = 'Deletes the current instance of Moon Yield.'}
 CMDs[#CMDs + 1] = {NAME = 'moreinstances / allowmoreinstances', DESC = 'Allows more instances.'}
 CMDs[#CMDs + 1] = {NAME = 'removeinstances / removeallowinstances', DESC = 'Disallows more instances.'}
+CMDs[#CMDs + 1] = {NAME = 'macrochat', DESC = 'Loads Macro Chat from ScriptBlox'}
+CMDs[#CMDs + 1] = {NAME = 'sunc', DESC = 'Does a SUNC test.'}
 CMDs[#CMDs + 1] = {NAME = 'generatenonce', DESC = 'Generates nonce'}
 CMDs[#CMDs + 1] = {NAME = 'setnonce', DESC = 'Sets the nonce of Moon Yield Remastered [HELPS WITH COMMANDS]'}
 CMDs[#CMDs + 1] = {NAME = 'printnonce', DESC = 'Prints the current setted nonce.'}
@@ -6515,6 +6517,17 @@ addcmd('togglekeepiy', {}, function(args, speaker)
 		notify('Incompatible Exploit','Your exploit does not support this command (missing queue_on_teleport)')
 	end
 end)
+
+addcmd("sunc",{},function(args, speaker)
+    loadstring(game:HttpGet("https://script.sunc.su/"))()
+    notify("Check console", "Press F9 or type /console in chat to see results")
+end)
+
+addcmd("macrochat",{},function(args, speaker)
+    loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Macro-chat-30115"))()
+    notify("Loading", "Hold on a sec")
+end)
+
 
 local canOpenServerinfo = true
 addcmd('serverinfo',{'info','sinfo'},function(args, speaker)
